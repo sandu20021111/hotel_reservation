@@ -19,7 +19,13 @@ $roomStmt = $pdo->prepare('SELECT * FROM rooms WHERE hotel_id = ?');
 $roomStmt->execute([$id]);
 $rooms = $roomStmt->fetchAll();
 ?>
-<style>
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><?=htmlspecialchars($hotel['name'])?></title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
+    <style>
     :root {
         --primary-color: #4361ee;
         --secondary-color: #3f37c9;
@@ -27,25 +33,23 @@ $rooms = $roomStmt->fetchAll();
         --error-color: #f72585;
         --success-color: #4ad66d;
         --text-color: #2b2d42;
-        --light-color: #f8f9fa;
-        --dark-color: #212529;
+        --light-bg: #f9f9fb;
+        --card-bg: #fff;
         --navbar-height: 60px;
     }
-    * {
-        margin: 0; padding: 0; box-sizing: border-box;
-    }
+    * {margin: 0; padding: 0; box-sizing: border-box;}
     body {
         font-family: 'Poppins', sans-serif;
         background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        min-height: 100vh;
-        padding-top: var(--navbar-height);
-        color: white;
+        color: var(--text-color);
         display: flex;
         flex-direction: column;
-        align-items: center;
         min-height: 100vh;
-        overflow-x: hidden;
+        padding-top: var(--navbar-height);
     }
+    a {text-decoration: none; color: var(--primary-color);}
+    a:hover {color: var(--secondary-color);}
+
     /* Navbar */
     nav.navbar {
         position: fixed;
@@ -56,60 +60,107 @@ $rooms = $roomStmt->fetchAll();
         justify-content: space-between;
         align-items: center;
         padding: 0 2rem;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         z-index: 1000;
     }
     nav.navbar .logo {
         font-weight: 700;
         font-size: 1.4rem;
         color: white;
-        user-select: none;
     }
     nav.navbar .nav-links a {
         color: white;
-        text-decoration: none;
         margin-left: 1.5rem;
         font-weight: 600;
         font-size: 1rem;
-        transition: color 0.3s ease;
+        transition: 0.3s;
     }
-    nav.navbar .nav-links a:hover {
-        color: var(--accent-color);
-        text-decoration: none;
-    }
-    nav.navbar .nav-user {
-        font-weight: 600;
-        font-size: 0.95rem;
-        color: white;
-        user-select: none;
-        margin-right: 3rem;
-    }
-    nav.navbar .nav-user a {
-        color: white;
-        margin-left: 1rem;
-        font-weight: 600;
-        text-decoration: none;
-        transition: color 0.3s ease;
-    }
-    nav.navbar .nav-user a:hover {
-        color: var(--accent-color);
-        text-decoration: underline;
-    }
+    nav.navbar .nav-links a:hover {color: var(--accent-color);}
+    nav.navbar .nav-user {color: white; margin-right: 1rem;}
 
+    /* Container */
+    .container {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: var(--card-bg);
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        animation: fadeSlideUp 0.6s ease forwards;
+    }
+    .container img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-bottom: 1.5rem;
+    }
+    .container h2 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        color: var(--primary-color);
+    }
+    .container p.small {
+        font-size: 0.9rem;
+        opacity: 0.8;
+        margin-bottom: 1rem;
+    }
+    .container p {margin-bottom: 1rem; line-height: 1.6;}
+    .container a {font-weight: 600;}
 
+    /* Form */
+    form {
+        margin-top: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+    .form-row {
+        display: flex;
+        flex-direction: column;
+    }
+    .form-row label {
+        font-weight: 600;
+        margin-bottom: 0.4rem;
+        color: var(--text-color);
+    }
+    .form-row input, 
+    .form-row select {
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: border 0.3s;
+    }
+    .form-row input:focus, 
+    .form-row select:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 2px rgba(67,97,238,0.2);
+    }
+    .btn {
+        padding: 0.9rem;
+        background: var(--primary-color);
+        border: none;
+        border-radius: 8px;
+        color: white;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.2s;
+    }
+    .btn:hover {
+        background: var(--secondary-color);
+        transform: translateY(-2px);
+    }
 
     /* Footer */
     footer.footer {
         margin-top: auto;
-        width: 100%;
         background: var(--primary-color);
         color: white;
         padding: 2.5rem 1rem 1rem;
-        font-size: 0.9rem;
-        user-select: none;
-        box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
     }
-
     .footer-container {
         max-width: 1200px;
         margin: 0 auto;
@@ -118,77 +169,25 @@ $rooms = $roomStmt->fetchAll();
         flex-wrap: wrap;
         gap: 2rem;
     }
-
-    .footer-section {
-        flex: 1 1 250px;
-    }
-
+    .footer-section {flex: 1 1 250px;}
     .footer-section h3 {
         margin-bottom: 1rem;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         border-bottom: 2px solid var(--accent-color);
         padding-bottom: 0.5rem;
     }
+    .footer-section ul {list-style: none;}
+    .footer-section ul li {margin-bottom: 0.6rem;}
+    .footer-section ul li a {color: white;}
+    .footer-section ul li a:hover {color: var(--accent-color);}
+    .footer-bottom {text-align: center; margin-top: 1.5rem; font-size: 0.85rem; opacity: 0.8;}
 
-    .footer-section ul {
-        list-style: none;
-        padding-left: 0;
+    /* Animations */
+    @keyframes fadeSlideUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
     }
-
-    .footer-section ul li {
-        margin-bottom: 0.6rem;
-    }
-
-    .footer-section ul li a {
-        color: white;
-        text-decoration: none;
-        transition: color 0.3s ease;
-    }
-
-    .footer-section ul li a:hover {
-        color: var(--accent-color);
-        text-decoration: underline;
-    }
-
-    .footer-section p,
-    .footer-section a {
-        font-size: 1rem;
-        color: white;
-        text-decoration: none;
-    }
-
-    .footer-section a:hover {
-        color: var(--accent-color);
-        text-decoration: underline;
-    }
-
-    .footer-bottom {
-        text-align: center;
-        margin-top: 1.5rem;
-        font-size: 0.9rem;
-        opacity: 0.8;
-    }
-
-    /* Responsive */
-    @media (max-width: 720px) {
-        .footer-container {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        .footer-section {
-            flex: unset;
-        }
-    }
-
     </style>
-
-<!doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title><?=htmlspecialchars($hotel['name'])?></title>
-    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
@@ -208,8 +207,14 @@ $rooms = $roomStmt->fetchAll();
         <?php endif; ?>
     </div>
 </nav>
+
 <div class="container">
-    <a href="index.php">← Back to Hotels</a>
+
+    <!-- Hotel Image -->
+    <?php $img = !empty($hotel['image']) ? $hotel['image'] : 'default.jpg'; ?>
+    <img src="uploads/<?=htmlspecialchars($img)?>" 
+         alt="<?=htmlspecialchars($hotel['name'])?>">
+
     <h2><?=htmlspecialchars($hotel['name'])?></h2>
     <p class="small"><?=htmlspecialchars($hotel['location'])?></p>
     <p><?=nl2br(htmlspecialchars($hotel['description']))?></p>
@@ -273,14 +278,9 @@ $rooms = $roomStmt->fetchAll();
   </div>
 </footer>
 
-</body>
-</html>
-
 <script>
-document.querySelector('form').addEventListener('submit', function(e) {
+document.querySelector('form')?.addEventListener('submit', function(e) {
   let form = e.target;
-
-  // Example: Check check-in/out dates in booking form
   if (form.checkin && form.checkout) {
     let checkin = new Date(form.checkin.value);
     let checkout = new Date(form.checkout.value);
@@ -290,15 +290,7 @@ document.querySelector('form').addEventListener('submit', function(e) {
       return false;
     }
   }
-
-  // Example: Password match check on registration form
-  if (form.password && form.confirm) {
-    if (form.password.value !== form.confirm.value) {
-      alert('Passwords do not match.');
-      e.preventDefault();
-      return false;
-    }
-  }
 });
 </script>
-
+</body>
+</html>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 11, 2025 at 05:22 PM
+-- Generation Time: Aug 16, 2025 at 08:45 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -43,7 +43,7 @@ CREATE TABLE `bookings` (
 --
 
 INSERT INTO `bookings` (`id`, `user_id`, `hotel_id`, `room_id`, `checkin_date`, `checkout_date`, `status`, `created_at`) VALUES
-(1, 1, 1, 2, '2025-11-11', '2025-12-11', 'booked', '2025-08-11 15:19:28');
+(4, 1, 7, 11, '2025-12-10', '2025-12-21', 'booked', '2025-08-16 06:23:19');
 
 -- --------------------------------------------------------
 
@@ -56,6 +56,7 @@ CREATE TABLE `hotels` (
   `name` varchar(255) NOT NULL,
   `location` varchar(255) NOT NULL,
   `description` text DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -63,9 +64,8 @@ CREATE TABLE `hotels` (
 -- Dumping data for table `hotels`
 --
 
-INSERT INTO `hotels` (`id`, `name`, `location`, `description`, `created_at`) VALUES
-(1, 'Ocean View Resort', 'Colombo', 'A beautiful beachside hotel with stunning ocean views.', '2025-08-11 15:18:17'),
-(2, 'Mountain Inn', 'Kandy', 'Cozy inn located near the hills and tea plantations.', '2025-08-11 15:18:17');
+INSERT INTO `hotels` (`id`, `name`, `location`, `description`, `image`, `created_at`) VALUES
+(7, 'City Central Hotel', 'Colombo', 'Convenient hotel in the city center.', 'Screenshot 2025-08-16 111305.png', '2025-08-16 06:21:32');
 
 -- --------------------------------------------------------
 
@@ -78,6 +78,7 @@ CREATE TABLE `rooms` (
   `hotel_id` int(11) NOT NULL,
   `type` varchar(100) NOT NULL,
   `price` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `availability` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -85,11 +86,9 @@ CREATE TABLE `rooms` (
 -- Dumping data for table `rooms`
 --
 
-INSERT INTO `rooms` (`id`, `hotel_id`, `type`, `price`, `created_at`) VALUES
-(1, 1, 'Standard Room', 4500.00, '2025-08-11 15:18:17'),
-(2, 1, 'Deluxe Room', 7500.00, '2025-08-11 15:18:17'),
-(3, 2, 'Single Room', 3500.00, '2025-08-11 15:18:17'),
-(4, 2, 'Suite', 9000.00, '2025-08-11 15:18:17');
+INSERT INTO `rooms` (`id`, `hotel_id`, `type`, `price`, `availability`, `created_at`) VALUES
+(11, 7, 'Single Room', 7500.00, 5, '2025-08-16 06:22:41'),
+(12, 7, 'Single Room', 7500.00, 5, '2025-08-16 06:23:42');
 
 -- --------------------------------------------------------
 
@@ -153,19 +152,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `hotels`
 --
 ALTER TABLE `hotels`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
