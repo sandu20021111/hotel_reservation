@@ -255,6 +255,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 margin: 0 1rem;
             }
         }
+
+         .login-link {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .login-link a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .login-link a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -282,9 +299,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
             <button class="btn" type="submit">Login</button>
             
+            
             <div class="forgot-password">
                 <a href="">Forgot your password?</a>
             </div>
+        
+             <div class="login-link">
+                Don't have an account? <a href="register.php">Sign up</a>
+            </div>
+
         </form>
     </div>
 
