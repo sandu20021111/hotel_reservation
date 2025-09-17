@@ -24,7 +24,7 @@ $bookings = $stmt->fetchAll();
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Bookings - Ocean Breeze Hotel</title>
+    <title>My Bookings - LuxeStaysLK</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
@@ -600,7 +600,7 @@ $bookings = $stmt->fetchAll();
 <nav class="navbar">
     <div class="logo">
         <i class="fas fa-hotel"></i>
-        <span>Ocean Breeze Hotel</span>
+        <span>LuxeStaysLK</span>
     </div>
     <button class="mobile-menu-btn" id="mobileMenuBtn">
         <i class="fas fa-bars"></i>
@@ -648,7 +648,7 @@ $bookings = $stmt->fetchAll();
 <footer class="footer">
     <div class="footer-container">
         <div class="footer-section">
-            <h3>Ocean Breeze Hotel</h3>
+            <h3>LuxeStaysLK</h3>
             <p>Sri Lanka's leading hotel reservation system, providing exceptional accommodation experiences since 2023.</p>
             <div class="footer-social">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -668,7 +668,7 @@ $bookings = $stmt->fetchAll();
         </div>
         <div class="footer-section">
             <h3>Contact Us</h3>
-            <p><i class="fas fa-envelope"></i> <a href="mailto:support@oceanbreezehotel.com">support@oceanbreezehotel.com</a></p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:support@oceanbreezehotel.com">support@luxestayslk.com</a></p>
             <p><i class="fas fa-phone"></i> <a href="tel:+94123456789">+94 123 456 789</a></p>
             <p><i class="fas fa-map-marker-alt"></i> 123 Main Street, Colombo, Sri Lanka</p>
         </div>
@@ -684,7 +684,7 @@ $bookings = $stmt->fetchAll();
         </div>
     </div>
     <div class="footer-bottom">
-        &copy; <?=date('Y')?> Ocean Breeze Hotel Reservation System. All rights reserved.
+        &copy; <?=date('Y')?> LuxeStaysLK Reservation System. All rights reserved.
     </div>
 </footer>
 

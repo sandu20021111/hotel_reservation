@@ -18,7 +18,7 @@ if (!empty($_GET['q'])) {
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ocean Breeze Hotel - Premium Hotel Reservation System</title>
+<title>LuxeStaysLK - Premium Hotel Reservation System</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery-bundle.min.css">
@@ -1250,7 +1250,7 @@ footer.footer:before {
 <nav class="navbar">
     <div class="logo">
         <i class="fas fa-hotel"></i>
-        <span>Ocean Breeze Hotel</span>
+        <span>LuxeStaysLK</span>
     </div>
     <button class="mobile-menu-btn" id="mobileMenuBtn">
         <i class="fas fa-bars"></i>
@@ -1382,7 +1382,7 @@ footer.footer:before {
         <div class="testimonial">
             <div class="testimonial-content">
                 <div class="testimonial-text">
-                    "Ocean Breeze Hotel made my Sri Lanka trip unforgettable. The hotels were exactly as described, and the booking process was seamless. Will definitely use this service again!"
+                    "LuxeStaysLK made my Sri Lanka trip unforgettable. The hotels were exactly as described, and the booking process was seamless. Will definitely use this service again!"
                 </div>
                 <div class="testimonial-author">
                     <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah Johnson" class="testimonial-avatar">
@@ -1406,7 +1406,7 @@ footer.footer:before {
 <section class="banner-about">
     <div class="banner-image" data-aos="fade-right"></div>
     <div class="banner-text" data-aos="fade-left">
-        <h2>About Ocean Breeze</h2>
+        <h2>About LuxeStaysLK</h2>
         <p>We are Sri Lanka's premier hotel booking platform, connecting travelers with the finest accommodations across the island.</p>
         <p>With years of experience in the hospitality industry, we've curated a selection of hotels that meet the highest standards of comfort, service, and value.</p>
         <a href="#hotels" class="btn">
@@ -1431,7 +1431,7 @@ footer.footer:before {
 <footer class="footer">
     <div class="footer-container">
         <div class="footer-section">
-            <h3>Ocean Breeze Hotel</h3>
+            <h3>LuxeStaysLK</h3>
             <p>Sri Lanka's leading hotel reservation system, providing exceptional accommodation experiences since 2023.</p>
             <div class="footer-social">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -1451,7 +1451,7 @@ footer.footer:before {
         </div>
         <div class="footer-section">
             <h3>Contact Us</h3>
-            <p><i class="fas fa-envelope"></i> <a href="mailto:support@lankashen.com">support@oceanbreezehotel.com</a></p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:support@lankashen.com">support@luxestayslk.com</a></p>
             <p><i class="fas fa-phone"></i> <a href="tel:+94123456789">+94 123 456 789</a></p>
             <p><i class="fas fa-map-marker-alt"></i> 123 Main Street, Colombo, Sri Lanka</p>
         </div>
@@ -1467,7 +1467,7 @@ footer.footer:before {
         </div>
     </div>
     <div class="footer-bottom">
-        &copy; <?=date('Y')?> Ocean Breeze Hotel Reservation System. All rights reserved.
+        &copy; <?=date('Y')?> LuxeStaysLK Reservation System. All rights reserved.
     </div>
 </footer>
 
